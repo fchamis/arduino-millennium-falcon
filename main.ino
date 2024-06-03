@@ -214,6 +214,7 @@ void loop() {
     interval = noteDuration;
 
     //end of the music, let's play again:
+    //for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
     //if (thisNote < notes * 2){
     //  thisNote = 0;
     //}
