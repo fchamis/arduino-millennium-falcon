@@ -9,7 +9,6 @@ long previousMillis2 = 0;        // will store last time LED was updated
 long interval = 5000;           // interval for music
 long intervalLed = 10;           // interval for led
 
-
 //Multi-tasking the Arduino - Part 1
 //https://www.digikey.com/en/maker/projects/multi-tasking-the-arduino-part-1/b23d9e65c4d342389d20cbd542c46a28
 //https://learn.adafruit.com/multi-tasking-the-arduino-part-2/timers
@@ -175,6 +174,8 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
   analogWrite(ledPin1, minBrightness); // Define a intensidade inicial do LED
   analogWrite(ledPin2, minBrightness); // Define a intensidade inicial do LED  
+  Serial.begin(9600);
+  delay(2000);
 }
 
 void loop() {
@@ -214,10 +215,9 @@ void loop() {
     interval = noteDuration;
 
     //end of the music, let's play again:
-    //for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
-    //if (thisNote < notes * 2){
-    //  thisNote = 0;
-    //}
+    if (thisNote == notes * 2){
+      thisNote = 0;
+    }
   }
   // end musica
 
